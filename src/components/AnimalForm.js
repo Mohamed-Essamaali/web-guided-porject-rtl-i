@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
 const AnimalForm = ({ errors, touched, values }) => {
+ 
   const [animals, setAnimals] = useState([
     {
       species: "Lion",
@@ -9,7 +10,8 @@ const AnimalForm = ({ errors, touched, values }) => {
       id: 365
     }
   ]);
-  const [animal, setAnimal] = useState({ species: "", age: "", notes: "" });
+  const defaultAnimal = { species: "", age: "", notes: "" }
+  const [animal, setAnimal] = useState(defaultAnimal);
 
   // Handle changes from form inputs
   const handleChange = event => {
@@ -23,6 +25,7 @@ const AnimalForm = ({ errors, touched, values }) => {
       id: Date.now()
     };
     setAnimals([...animals, newAnimal]);
+
   };
 
   return (
